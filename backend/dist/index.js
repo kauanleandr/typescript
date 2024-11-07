@@ -17,21 +17,16 @@ const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
 const pokemons = [
-    "Bulbasaur", "Charmander", "Squirtle", "Pikachu", "Jigglypuff",
-    "Meowth", "Psyduck", "Machop", "Geodude", "Onix",
-    "Abra", "Gengar", "Eevee", "Snorlax", "Mewtwo",
-    "Chikorita", "Cyndaquil", "Totodile", "Togepi", "Mareep",
-    "Espeon", "Umbreon", "Scizor", "Heracross", "Tyranitar",
-    "Treecko", "Torchic", "Mudkip", "Ralts", "Gardevoir",
-    "Sableye", "Mawile", "Aggron", "Flygon", "Salamence",
-    "Metagross", "Turtwig", "Chimchar", "Piplup", "Lucario",
-    "Garchomp", "Munchlax", "Electivire", "Magmortar", "Togekiss",
-    "Gliscor", "Snivy", "Tepig", "Oshawott", "Zoroark",
-    "Excadrill", "Hydreigon", "Volcarona", "Genesect", "Chespin",
-    "Fennekin", "Froakie", "Talonflame", "Sylveon", "Goodra",
-    "Rowlet", "Litten", "Popplio", "Lycanroc", "Toxapex",
-    "Mimikyu", "Grookey", "Scorbunny", "Sobble", "Corviknight",
-    "Duraludon", "Dragapult"
+    { name: "Bulbasaur", abilities: ["Overgrow", "Chlorophyll"] },
+    { name: "Charmander", abilities: ["Blaze", "Solar Power"] },
+    { name: "Squirtle", abilities: ["Torrent", "Rain Dish"] },
+    { name: "Pikachu", abilities: ["Static", "Lightning Rod"] },
+    { name: "Jigglypuff", abilities: ["Cute Charm", "Competitive", "Friend Guard"] },
+    { name: "Meowth", abilities: ["Pickup", "Technician", "Unnerve"] },
+    { name: "Psyduck", abilities: ["Damp", "Cloud Nine", "Swift Swim"] },
+    { name: "Machop", abilities: ["Guts", "No Guard", "Steadfast"] },
+    { name: "Geodude", abilities: ["Rock Head", "Sturdy", "Sand Veil"] },
+    { name: "Onix", abilities: ["Rock Head", "Sturdy", "Weak Armor"] },
 ];
 app.get('/', (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {

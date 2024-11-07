@@ -7,8 +7,27 @@
 </head>
 <body>
   <h1>Lista de Pokémons</h1>
-  <ul id="pokemon-list">
-  </ul>
+  
+  <!-- Formulário para adicionar um novo Pokémon -->
+  <form id="pokemon-form">
+    <label for="pokemon-name">Nome do Pokémon:</label>
+    <input type="text" id="pokemon-name" required>
+
+    <label for="pokemon-abilities">Habilidades (separadas por vírgula):</label>
+    <input type="text" id="pokemon-abilities" required>
+
+    <button type="submit">Adicionar Pokémon</button>
+  </form>
+
+  <table class="table" id="pokemon-table">
+    <thead>
+      <tr>
+        <th>Pokémon</th>
+        <th>Habilidades</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
 
   <script>
     async function fetchPokemons() {
@@ -20,24 +39,83 @@
         }
 
         const pokemons = await response.json();
-
-        const pokemonList = document.getElementById('pokemon-list');
-
-        pokemons.forEach(pokemon => {
-          const listItem = document.createElement('li');
-          listItem.textContent = pokemon;
-          pokemonList.appendChild(listItem);
-        });
+        pokemons.forEach(addPokemonToTable);
       } catch (error) {
         console.error('Erro ao buscar Pokémons:', error);
       }
     }
 
+    function addPokemonToTable(pokemon) {
+      const pokemonTable = document.getElementById('pokemon-table').getElementsByTagName('tbody')[0];
+      const row = document.createElement('tr');
+      
+      // Nome do Pokémon
+      const nameCell = document.createElement('td');
+      nameCell.textContent = pokemon.name;
+      row.appendChild(nameCell);
+
+      // Habilidades do Pokémon
+      const abilitiesCell = document.createElement('td');
+      abilitiesCell.textContent = pokemon.abilities.join(', ');
+      row.appendChild(abilitiesCell);
+
+      pokemonTable.appendChild(row);
+    }
+
+    // Adiciona novo Pokémon do formulário
+    document.getElementById('pokemon-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('pokemon-name').value.trim();
+      const abilities = document.getElementById('pokemon-abilities').value.split(',').map(a => a.trim());
+
+      if (name && abilities.length > 0) {
+        const newPokemon = { name, abilities };
+        addPokemonToTable(newPokemon);
+
+        // Limpa os campos do formulário
+        document.getElementById('pokemon-name').value = '';
+        document.getElementById('pokemon-abilities').value = '';
+      }
+    });
+
     window.onload = fetchPokemons;
   </script>
+
   <style>
-    h1{
-        text-align: center;
+    h1 {
+      text-align: center;
+    }
+    form {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 200px;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 0.9em;
+      opacity: 0.9;
+    }
+    form label, form input, form button {
+      display: block;
+      margin: 5px 0;
+      width: 100%;
+    }
+    .table {
+      width: 80%;
+      border-collapse: collapse;
+      margin: 20px auto;
+      text-align: center;
+    }
+    .table th, .table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      color: black;
+    }
+    .table th {
+      background-color: #f2f2f2;
     }
   </style>
 </body>
