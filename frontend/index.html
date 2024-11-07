@@ -8,13 +8,15 @@
 <body>
   <h1>Lista de Pokémons</h1>
   
-  <!-- Formulário para adicionar um novo Pokémon -->
   <form id="pokemon-form">
     <label for="pokemon-name">Nome do Pokémon:</label>
     <input type="text" id="pokemon-name" required>
 
-    <label for="pokemon-abilities">Habilidades (separadas por vírgula):</label>
+    <label for="pokemon-abilities">Habilidades (separe por vírgula):</label>
     <input type="text" id="pokemon-abilities" required>
+
+    <label for="pokemon-type">tipo do pokemon (separe por vírgula):</label>
+    <input type="text" id="pokemon-type" required>
 
     <button type="submit">Adicionar Pokémon</button>
   </form>
@@ -23,6 +25,7 @@
     <thead>
       <tr>
         <th>Pokémon</th>
+        <th>type</th>
         <th>Habilidades</th>
       </tr>
     </thead>
@@ -49,12 +52,14 @@
       const pokemonTable = document.getElementById('pokemon-table').getElementsByTagName('tbody')[0];
       const row = document.createElement('tr');
       
-      // Nome do Pokémon
       const nameCell = document.createElement('td');
       nameCell.textContent = pokemon.name;
       row.appendChild(nameCell);
 
-      // Habilidades do Pokémon
+      const typeCell = document.createElement('td');
+      typeCell.textContent = pokemon.type.join(', ')
+      row.appendChild(typeCell);
+
       const abilitiesCell = document.createElement('td');
       abilitiesCell.textContent = pokemon.abilities.join(', ');
       row.appendChild(abilitiesCell);
@@ -62,19 +67,20 @@
       pokemonTable.appendChild(row);
     }
 
-    // Adiciona novo Pokémon do formulário
     document.getElementById('pokemon-form').addEventListener('submit', function(event) {
       event.preventDefault();
       
       const name = document.getElementById('pokemon-name').value.trim();
+      const type = document.getElementById('pokemon-type').value.split(',').map(a => a.trim());
       const abilities = document.getElementById('pokemon-abilities').value.split(',').map(a => a.trim());
 
-      if (name && abilities.length > 0) {
-        const newPokemon = { name, abilities };
+
+      if (name && type && abilities.length > 0) {
+        const newPokemon = { name, type, abilities };
         addPokemonToTable(newPokemon);
 
-        // Limpa os campos do formulário
         document.getElementById('pokemon-name').value = '';
+        document.getElementById('pokemon-type').value = '';
         document.getElementById('pokemon-abilities').value = '';
       }
     });
@@ -88,15 +94,15 @@
     }
     form {
       position: fixed;
-      bottom: 20px;
-      left: 20px;
+      bottom: 0px;
+      left: 0px;
       width: 200px;
       padding: 10px;
       background-color: rgba(255, 255, 255, 0.8);
       border: 1px solid #ccc;
-      border-radius: 8px;
       font-size: 0.9em;
       opacity: 0.9;
+      z-index: 1;
     }
     form label, form input, form button {
       display: block;
@@ -104,7 +110,7 @@
       width: 100%;
     }
     .table {
-      width: 80%;
+      width: 67%;
       border-collapse: collapse;
       margin: 20px auto;
       text-align: center;

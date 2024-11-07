@@ -17,16 +17,16 @@ const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
 const pokemons = [
-    { name: "Bulbasaur", abilities: ["Overgrow", "Chlorophyll"] },
-    { name: "Charmander", abilities: ["Blaze", "Solar Power"] },
-    { name: "Squirtle", abilities: ["Torrent", "Rain Dish"] },
-    { name: "Pikachu", abilities: ["Static", "Lightning Rod"] },
-    { name: "Jigglypuff", abilities: ["Cute Charm", "Competitive", "Friend Guard"] },
-    { name: "Meowth", abilities: ["Pickup", "Technician", "Unnerve"] },
-    { name: "Psyduck", abilities: ["Damp", "Cloud Nine", "Swift Swim"] },
-    { name: "Machop", abilities: ["Guts", "No Guard", "Steadfast"] },
-    { name: "Geodude", abilities: ["Rock Head", "Sturdy", "Sand Veil"] },
-    { name: "Onix", abilities: ["Rock Head", "Sturdy", "Weak Armor"] },
+    { name: "Bulbasaur", type: ["Poison", "Grass"], abilities: ["Overgrow", "Chlorophyll"] },
+    { name: "Charmander", type: ["Fire"], abilities: ["Blaze", "Solar Power"] },
+    { name: "Squirtle", type: ["Water"], abilities: ["Torrent", "Rain Dish"] },
+    { name: "Pikachu", type: ["Eletric"], abilities: ["Static", "Lightning Rod"] },
+    { name: "Jigglypuff", type: ["Fairy", "Normal"], abilities: ["Cute Charm", "Competitive", "Friend Guard"] },
+    { name: "Meowth", type: ["Normal"], abilities: ["Pickup", "Technician", "Unnerve"] },
+    { name: "Psyduck", type: ["Water"], abilities: ["Damp", "Cloud Nine", "Swift Swim"] },
+    { name: "Machop", type: ["Fighting"], abilities: ["Guts", "No Guard", "Steadfast"] },
+    { name: "Geodude", type: ["Rock"], abilities: ["Rock Head", "Sturdy", "Sand Veil"] },
+    { name: "Onix", type: ["Rock", "Ground"], abilities: ["Rock Head", "Sturdy", "Weak Armor"] },
 ];
 app.get('/', (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
