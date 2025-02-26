@@ -17,7 +17,7 @@ Antes de iniciar, certifique-se de ter instalado:
 1. Clone este repositório:
 
    ```sh
-   git clone https://github.com/seu-usuario/backend.git
+   git clone https://github.com/kauanleandr/typescript.git
    ```
 
 2. Acesse a pasta do backend:
