@@ -38,7 +38,7 @@ Não é necessário instalar dependências. O frontend pode ser servido diretame
 
 ## Como Rodar o Projeto
 
-### Backend
+### Backgraund
 
 Para iniciar o servidor em ambiente de desenvolvimento, execute:
 
