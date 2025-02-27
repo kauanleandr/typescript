@@ -12,7 +12,7 @@ Antes de iniciar, certifique-se de ter instalado:
 
 ## Instalação
 
-### Backend
+### Backgraund
 
 1. Clone este repositório:
 
@@ -38,7 +38,7 @@ Não é necessário instalar dependências. O frontend pode ser servido diretame
 
 ## Como Rodar o Projeto
 
-### Backgraund
+### Backend
 
 Para iniciar o servidor em ambiente de desenvolvimento, execute:
 
