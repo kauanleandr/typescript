@@ -17,7 +17,6 @@ function addPokemonToTable(pokemon) {
   const pokemonTable = document.getElementById('pokemon-table').getElementsByTagName('tbody')[0];
   const row = document.createElement('tr');
 
-  // Criar célula da imagem
   const imageCell = document.createElement('td');
   const img = document.createElement('img');
   img.src = `/frontend/img/pokemons/${pokemon.name.toLowerCase().replace(/ /g, "-")}.jpg`;
@@ -27,17 +26,14 @@ function addPokemonToTable(pokemon) {
   imageCell.appendChild(img);
   row.appendChild(imageCell);
 
-  // Criar célula dos tipos
   const typeCell = document.createElement('td');
   typeCell.textContent = pokemon.type.join(', ');
   row.appendChild(typeCell);
 
-  // Criar célula das habilidades
   const abilitiesCell = document.createElement('td');
   abilitiesCell.textContent = pokemon.abilities.join(', ');
   row.appendChild(abilitiesCell);
 
-  // Criar botão de remoção
   const removeCell = document.createElement('td');
   const removeButton = document.createElement('button');
   removeButton.textContent = 'Delete';
