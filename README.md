@@ -1,7 +1,6 @@
-# Backend e Frontend Project
+# API de Pokemons.
 
 Este repositório contém um backend simples utilizando Node.js, Express e TypeScript, e um frontend estático servido com Live Server.
-API de pokemons.
 
 ## Pré-requisitos
 
